@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build
         run: cargo build --release
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Generate the artifacts
         uses: skx/github-action-build@master
@@ -44,6 +44,5 @@ jobs:
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
-        with:
-          name: stratum-artifacts
-          path: target/release
+      - name: Build
+        run: .github/build
