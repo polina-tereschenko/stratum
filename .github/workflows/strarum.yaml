@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
   generate:
     name: Create release-artifacts
@@ -22,12 +22,12 @@ jobs:
       - name: Debugging
         run: |
           ls -R
-          cat .github/
+          cat .github/*
             |-- build
             |-- workflows/
             |   `-- main.yml
       - name: Checkout the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Generate the artifacts
         uses: skx/github-action-build@master
       - name: Build
