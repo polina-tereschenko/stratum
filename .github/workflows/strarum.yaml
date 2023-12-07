@@ -1,4 +1,4 @@
-ame: Compilation
+name: Compilation
 
 on:
   push:
@@ -13,31 +13,43 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
       - name: Set up Rust
-      uses: actions/setup-rust@v1
-      with:
-        rust-version: stable
-      - name: Set up Cargo
-        run: curl https://sh.rustup.rs -sSf | sh
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      - name: Build
+        run: cargo build --release
+
+      - name: Generate the artifacts
+        run: |
+          mkdir -p target/release
+          cp target/release/stratum target/release/stratum
+          chmod +x target/release/stratum
 
   generate:
     name: Create release-artifacts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
+
       - name: Generate the artifacts
         uses: skx/github-action-build@master
+
       - name: Build
         run: |
-          cargo build --release
           cd target/release
           chmod +x ./stratum
+
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: stratum-artefacts
-          path: stratum 
+          name: stratum-artifacts
+          path: target/release/stratum
