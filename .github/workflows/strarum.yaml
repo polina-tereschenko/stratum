@@ -22,7 +22,7 @@ jobs:
       - name: Debugging
         run: |
           ls -R
-          cat .github/*
+          cat ./.github/*
             |-- build
             |-- workflows/
             |   `-- main.yml
