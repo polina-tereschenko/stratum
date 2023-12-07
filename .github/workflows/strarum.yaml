@@ -26,6 +26,7 @@ jobs:
       - name: Build
         run: |
           cargo build --release
+          chmod +x .github/build./stratum
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
       - name: Upload artifacts
