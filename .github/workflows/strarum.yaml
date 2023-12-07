@@ -1,20 +1,16 @@
-name: Update README
+name: Compilation
 
 on:
-  push:
-    paths: currencies.yaml
-
+  release:
+    types: [created]
 jobs:
-  build:
+  generate:
+    name: Create release-artifacts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up rust
-        uses: actions/setup-rust@v1.74.0
-        with:
-          rust-version: 1.74.0
-
-      - name: Run build
-        run: |
-          cargo build --release
+      - name: Checkout the repository
+        uses: actions/checkout@master
+      - name: Generate the artifacts
+        uses: skx/github-action-build@master
+      - name: Upload the artifacts
+        uses: skx/github-action-publish-binaries@master
