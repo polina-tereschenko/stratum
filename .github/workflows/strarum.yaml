@@ -19,6 +19,10 @@ jobs:
     name: Create release-artifacts
     runs-on: ubuntu-latest
     steps:
+      - name: Debugging
+        run: |
+          ls -R
+          cat .github/build
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Generate the artifacts
