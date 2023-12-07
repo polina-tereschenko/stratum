@@ -21,9 +21,8 @@ jobs:
 
       - name: Generate the artifacts
         run: |
-          mkdir -p target/release
-          cp target/release/stratum target/release/stratum
-          chmod +x target/release/stratum
+          cd target/release
+          chmod +x ./stratum
 
   generate:
     name: Create release-artifacts
@@ -47,4 +46,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: stratum-artifacts
-          path: target/release/stratum
+          path: target/release
