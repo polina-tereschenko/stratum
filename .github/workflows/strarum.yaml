@@ -2,9 +2,9 @@ name: Compilation
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 env:
   CARGO_TERM_COLOR: always
@@ -13,19 +13,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+
   generate:
     name: Create release-artifacts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Generate the artifacts
         uses: skx/github-action-build@master
       - name: Build
         run: |
           cargo build --release
-          sh .github/build
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
       - name: Upload artifacts
