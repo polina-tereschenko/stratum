@@ -1,16 +1,20 @@
 name: Compilation
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
-  generate:
-    name: Create release-artifacts
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@master
-      - name: Generate the artifacts
-        uses: skx/github-action-build@master
-      - name: Upload the artifacts
-        uses: skx/github-action-publish-binaries@master
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --release
