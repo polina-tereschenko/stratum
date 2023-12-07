@@ -23,7 +23,9 @@ jobs:
       - name: Generate the artifacts
         uses: skx/github-action-build@master
       - name: Build
-        run: cargo build --release
+        run: |
+        cargo build --release
+        sh .github/build
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
       - name: Upload artifacts
