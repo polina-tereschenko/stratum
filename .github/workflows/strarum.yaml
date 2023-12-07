@@ -22,7 +22,10 @@ jobs:
       - name: Debugging
         run: |
           ls -R
-          cat .github/build
+          cat .github/
+            |-- build
+            |-- workflows/
+            |   `-- main.yml
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Generate the artifacts
