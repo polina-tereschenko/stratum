@@ -21,9 +21,8 @@ jobs:
     name: Create release-artifacts
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-          run: |
-            chmod +x ./stratum
+      - name: Upload
+          run: chmod +x ./stratum
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Generate the artifacts
