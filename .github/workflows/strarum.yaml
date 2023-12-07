@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up python
-        uses: actions/setup-python@v3
+      - name: Set up rust
+        uses: actions/setup-rust@v1.74.0
         with:
-          python-version: 3
+          rust-version: 1.74.0
 
       - name: Run build
         run: |
