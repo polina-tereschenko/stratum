@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          cargo build --release
+          chmod +x stratum
   generate:
     name: Create release-artifacts
     runs-on: ubuntu-latest
@@ -22,13 +26,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Generate the artifacts
         uses: skx/github-action-build@master
-      - name: Build
-        run: |
-          cargo build --release
-          chmod +x stratum
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v2
         with:
           name: stratum-artefacts
