@@ -33,6 +33,8 @@ jobs:
           path: /home/polina/REPOSIOTORY/stratum/target/release/stratum
       - name: Upload binary to repository
         run: |
+          git config --global user.email "polinatereschenko16@gmail.com"
+          git config --global user.name "polina-tereschenko"
           git add ${{ env.BUILT_ARCHIVE }}
           git commit -m "Add binary release"
           git push
