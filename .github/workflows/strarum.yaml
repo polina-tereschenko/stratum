@@ -12,6 +12,8 @@ jobs:
       uses: actions/checkout@v4
     - name: Set up Rust
       uses: actions/setup-rust@v2
+      with:
+        profile: minimal
     - name: Build Binary
       run: cargo build --release
     - name: Upload Binary to Releases
