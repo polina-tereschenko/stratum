@@ -17,7 +17,7 @@ jobs:
         id: build
         run: |
           cargo build --release
-          echo "BUILT_ARCHIVE=$(pwd)/stratum/target/release" >> $GITHUB_ENV
+          echo "BUILT_ARCHIVE=$(pwd)/stratum/blob/master/target/release/stratum" >> $GITHUB_ENV
 
   generate:
     name: Create release-artifacts
