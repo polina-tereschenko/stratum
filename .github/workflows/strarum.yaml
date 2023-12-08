@@ -3,8 +3,10 @@ name: Compilation
 on:
   push:
     branches: ["master"]
+
 env:
   CARGO_TERM_COLOR: always
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,6 +17,7 @@ jobs:
         id: build
         run: |
           cargo build --release
+          echo "BUILT_ARCHIVE=$(pwd)/home/polina/REPOSIOTORY/stratum/target/release/stratum" >> $GITHUB_ENV
 
   generate:
     name: Create release-artifacts
