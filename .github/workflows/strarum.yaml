@@ -27,7 +27,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: Binary
-          path: ${{ env.BUILT_ARCHIVE }}
+          path: /home/polina/REPOSIOTORY/stratum/target/release/stratum
