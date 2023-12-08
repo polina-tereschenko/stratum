@@ -30,5 +30,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Binary
-          path: |
-            ${{ needs.build.outputs.BUILT_ARCHIVE }}
+          path: ${{ env.BUILT_ARCHIVE }}
