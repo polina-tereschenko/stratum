@@ -21,8 +21,6 @@ jobs:
     - name: Build Binary
       run: |
         cargo build --release
-    - name: Copy Binary
-      run: cp /home/polina/REPOSIOTORY/stratum/target/release/
     - name: Upload Binary
       uses: actions/upload-artifact@v2
       with:
