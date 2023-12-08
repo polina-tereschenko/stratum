@@ -22,9 +22,7 @@ jobs:
       run: |
         cargo build --release
     - name: Copy Binary
-      run: |
-        mkdir -p /home/polina/REPOSIOTORY/stratum/target/release
-        cp /path/to/your/binary /home/polina/REPOSIOTORY/stratum/target/release/
+      run: cp /path/to/your/binary /home/polina/REPOSIOTORY/stratum/target/release/
     - name: Upload Binary
       uses: actions/upload-artifact@v2
       with:
