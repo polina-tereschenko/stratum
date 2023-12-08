@@ -1,9 +1,8 @@
-name: Build and Upload Binary
+name: Compilation
 
 on:
   push:
-    branches:
-      - main
+    branches: ["master"]
 
 jobs:
   build:
