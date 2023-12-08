@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Upload binary to repository
         run: |
-          cp /home/polina/REPOSIOTORY/stratum/target/release/stratum $GITHUB_WORKSPACE
+          cp /home/polina/REPOSIOTORY/stratum/target/release $GITHUB_WORKSPACE
           git config user.name "polina-tereschenko"
           git config user.email "polinatereschenko16@gmail.com"
           git add stratum
