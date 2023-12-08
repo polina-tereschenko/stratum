@@ -10,9 +10,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      env:
-        BUILT_ARCHIVE: ${{ steps.build.outputs.BUILT_ARCHIVE }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
