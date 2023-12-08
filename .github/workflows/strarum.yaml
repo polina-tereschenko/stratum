@@ -4,9 +4,6 @@ on:
   push:
     branches: ["master"]
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,10 +11,8 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Build
-        id: build
         run: |
           cargo build --release
-
   generate:
     name: Create release-artifacts
     runs-on: ubuntu-latest
