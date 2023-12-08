@@ -31,3 +31,10 @@ jobs:
         with:
           name: Binary
           path: ${{ env.BUILT_ARCHIVE }}
+      - name: Upload binary to repository
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add ${{ env.BUILT_ARCHIVE }}
+          git commit -m "Add binary release"
+          git push
