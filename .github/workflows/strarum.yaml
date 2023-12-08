@@ -22,14 +22,13 @@ jobs:
     - name: Build Binary
       run: |
         cargo build --release
-        chmod +x ./stratum
-
-    - name: Debug - Check Permissions
-      run: |
-        ls -l ./stratum
 
     - name: Upload Binary
       uses: actions/upload-artifact@v3
       with:
         name: stratum-binary
         path: target/release/stratum
+
+    - name: Set executable permission
+      run: |
+        chmod +x $GITHUB_WORKSPACE/target/release/stratum
