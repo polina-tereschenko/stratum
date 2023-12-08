@@ -1,4 +1,4 @@
-name: Compilation
+name: Build and Upload Binary
 
 on:
   push:
@@ -7,18 +7,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
+
     - name: Set up Rust
-      uses: actions/setup-rust@v2
+      uses: actions/setup-rust@v1
       with:
-        profile: minimal
+        rust-version: stable
+
     - name: Build Binary
-      run: cargo build --release
-    - name: Upload Binary to Releases
-      uses: actions/upload-release-asset@v1
+      run: |
+        cargo build --release
+        cp /home/polina/REPOSIOTORY/stratum/target/release
+
+    - name: Upload Binary
+      uses: actions/upload-artifact@v2
       with:
-        file: /home/polina/REPOSITORY/stratum/target/release/stratum
-        asset_name: stratum
-        asset_content_type: application/octet-stream
+        name: stratum-binary
+        path: /home/polina/REPOSIOTORY/stratum/target/release
