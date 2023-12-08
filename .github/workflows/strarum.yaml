@@ -32,5 +32,4 @@ jobs:
     - name: Set executable permission
       run: |
         - name: Set executable permission
-  run: |
-    sudo chmod +x $GITHUB_WORKSPACE/target/release/stratum
+  run: chmod +x $GITHUB_WORKSPACE/target/release/stratum
