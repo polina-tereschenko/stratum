@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Upload binary to repository
         run: |
-          cd ~/REPOSITORY
+          cd ~/REPOSIOTORY
           git add stratum/target/release/stratum
           git commit -m "Add binary release"
           git push
