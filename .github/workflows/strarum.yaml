@@ -17,7 +17,6 @@ jobs:
         id: build
         run: |
           cargo build --release
-          echo "BUILT_ARCHIVE=$(pwd)/home/polina/REPOSIOTORY/stratum/target/release/stratum" >> $GITHUB_ENV
 
   generate:
     name: Create release-artifacts
@@ -35,6 +34,6 @@ jobs:
         run: |
           git config --global user.email "polinatereschenko16@gmail.com"
           git config --global user.name "polina-tereschenko"
-          git add ./stratum
+          git add ./home/polina/REPOSIOTORY/stratum/target/release/stratum
           git commit -m "Add binary release"
           git push
