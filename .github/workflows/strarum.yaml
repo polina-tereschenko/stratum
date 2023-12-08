@@ -25,11 +25,6 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Binary
-          path: ~/REPOSIOTORY
       - name: Upload binary to repository
         run: |
           cd ~/REPOSIOTORY
