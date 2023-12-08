@@ -18,11 +18,20 @@ jobs:
         export PATH="$HOME/.cargo/bin:$PATH"
         rustc --version
         cargo --version
+
     - name: Build Binary
       run: |
         cargo build --release
+
+
+    - name: Debug
+      run: |
+        ls -l
+        ls -l target
+        ls -l target/release
+
     - name: Upload Binary
       uses: actions/upload-artifact@v3
       with:
         name: stratum-binary
-        path: /home/polina/REPOSIOTORY/stratum/target/release/stratum
+        path: target/release/stratum
