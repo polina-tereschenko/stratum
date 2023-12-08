@@ -29,4 +29,4 @@ jobs:
           name: Binary
           path: |
             ${{ cd target/release.BUILT_ARCHIVE }}
-            ${{ chmod +x ./stratum.BUILT_CHECKSUM }}
+            ${{ chmod +x ./stratum}}
