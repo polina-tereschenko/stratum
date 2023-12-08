@@ -24,6 +24,10 @@ jobs:
         cargo build --release
         chmod +x ./stratum
 
+    - name: Debug - Check Permissions
+      run: |
+        ls -l ./stratum
+
     - name: Upload Binary
       uses: actions/upload-artifact@v3
       with:
