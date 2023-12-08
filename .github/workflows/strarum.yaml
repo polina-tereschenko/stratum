@@ -17,11 +17,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         run: cargo build --release
-      - name: Generate the artifacts
-        run: |
-          cd target/release
-          chmod +x ./stratum
-
   generate:
     name: Create release-artifacts
     runs-on: ubuntu-latest
@@ -33,5 +28,5 @@ jobs:
         with:
           name: Binary
           path: |
-            ${{ steps.compile.outputs.BUILT_ARCHIVE }}
-            ${{ steps.compile.outputs.BUILT_CHECKSUM }}
+            ${{ cd target/release.BUILT_ARCHIVE }}
+            ${{ chmod +x ./stratum.BUILT_CHECKSUM }}
