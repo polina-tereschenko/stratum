@@ -22,7 +22,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Upload binary to repository
         run: |
-          cd /home/polina/REPOSIOTORY/stratum
           git add target/release/stratum
           git commit -m "Add binary release"
           git push
