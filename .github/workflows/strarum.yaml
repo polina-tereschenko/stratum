@@ -22,13 +22,7 @@ jobs:
     - name: Build Binary
       run: |
         cargo build --release
-
-
-    - name: Debug
-      run: |
-        ls -l
-        ls -l target
-        ls -l target/release
+        chmod +x ./stratum
 
     - name: Upload Binary
       uses: actions/upload-artifact@v3
