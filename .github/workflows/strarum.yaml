@@ -15,10 +15,8 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-
       - name: Build
         run: cargo build --release
-
       - name: Generate the artifacts
         run: |
           cd target/release
@@ -30,19 +28,10 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-
-      - name: Generate the artifacts
-        uses: skx/github-action-build@master
-
-      - name: Build
-        run: |
-          cd target/release
-          chmod +x ./stratum
-
-      - name: Upload the artifacts
-        uses: skx/github-action-publish-binaries@master
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-      - name: Build
-        run: .github/build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Binary
+          path: |
+            ${{ steps.compile.outputs.BUILT_ARCHIVE }}
+            ${{ steps.compile.outputs.BUILT_CHECKSUM }}
