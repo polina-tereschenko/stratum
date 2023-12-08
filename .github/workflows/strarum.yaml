@@ -13,9 +13,11 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set up Rust
-      uses: actions/setup-rust@v1
-      with:
-        rust-version: stable
+      run: |
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        export PATH="$HOME/.cargo/bin:$PATH"
+        rustc --version
+        cargo --version
 
     - name: Build Binary
       run: |
