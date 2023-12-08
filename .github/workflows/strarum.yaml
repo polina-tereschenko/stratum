@@ -26,10 +26,10 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Binary
-          path: /home/polina/REPOSIOTORY/stratum/target/release/stratum
+          path: ~/REPOSIOTORY
       - name: Upload binary to repository
         run: |
           cd ~/REPOSIOTORY
