@@ -22,7 +22,7 @@ jobs:
       run: |
         cargo build --release
     - name: Upload Binary
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: stratum-binary
-        path: /home/polina/REPOSIOTORY/stratum/target/release
+        path: /home/polina/REPOSIOTORY/stratum/target/release/stratum
