@@ -17,7 +17,7 @@ jobs:
         id: build
         run: |
           cargo build --release
-          echo "BUILT_ARCHIVE=$(pwd)/stratum/target/release/stratum" >> $GITHUB_ENV
+          echo "BUILT_ARCHIVE=$(pwd)/home/polina/REPOSIOTORY/stratum/target/release/stratum" >> $GITHUB_ENV
 
   generate:
     name: Create release-artifacts
@@ -33,8 +33,6 @@ jobs:
           path: ${{ env.BUILT_ARCHIVE }}
       - name: Upload binary to repository
         run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
           git add ${{ env.BUILT_ARCHIVE }}
           git commit -m "Add binary release"
           git push
