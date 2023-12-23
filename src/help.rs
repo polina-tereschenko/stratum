@@ -1,4 +1,4 @@
 pub fn handle_help() {
-    println!("-p | --pull -> donwload ашду with indicated hash
+    println!("-p | --pull -> donwload with indicated hash
               -m | --mount -> none");
 }
