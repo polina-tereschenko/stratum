@@ -1,4 +1,4 @@
-use std::fs;
+//use std::fs;
 use reqwest::blocking;
 use regex::Regex;
 
@@ -22,21 +22,21 @@ pub fn handle_inspect(){
                 }
             }
         }
-        let root_folder = "strarum";
-        if !fs::metadata(root_folder).is_ok() {
-            if let Err(err) = fs::create_dir(root_folder) {
-                eprintln!("Failed to create root folder: {}", err);
-            }
-        }
+        // let root_folder = "strarum";
+        // if !fs::metadata(root_folder).is_ok() {
+        //     if let Err(err) = fs::create_dir(root_folder) {
+        //         eprintln!("Failed to create root folder: {}", err);
+        //     }
+        // }
 
-        let user_folder = format!("{}/{}", root_folder, hash);
+        // let user_folder = format!("{}/{}", root_folder, hash);
 
-        if !fs::metadata(&user_folder).is_ok() {
-            if let Err(err) = fs::create_dir(&user_folder) {
-                eprintln!("Failed to create user folder: {}", err);
-            }
-        }
+        // if !fs::metadata(&user_folder).is_ok() {
+        //     if let Err(err) = fs::create_dir(&user_folder) {
+        //         eprintln!("Failed to create user folder: {}", err);
+        //     }
+        // }
 
-        let _file_path = format!("{}/MANIFEST", user_folder);
+        // let _file_path = format!("{}/MANIFEST", user_folder);
     }
 }
